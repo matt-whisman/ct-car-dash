@@ -1,16 +1,29 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Car from "../components/Car";
+import { DataContext } from "../contexts/DataProvider";
 
 export default function BlogSingle() {
   const { id } = useParams();
   const [car, setCar] = useState({});
+  const [carState, setCarState] = useState("LOADING");
+  const { getSingleCar } = useContext(DataContext);
 
   useEffect(() => {
-    fetch(`https://my-json-server.typicode.com/Llang8/cars-api/cars/${carId}`)
-      .then((res) => res.json())
-      .then((data) => setCar(data));
+    const queryCar = async () => {
+      setCar(await getSingleCar(id));
+      setCarState("LOADED");
+    };
+    queryCar();
   }, [id]);
 
-  return <Car car={car} hideLink={true} />;
+  return (
+    <>
+      {
+        (carState === "LOADED") ?
+        <Car car={car} hideLink={true} /> :
+        <p>Loading</p>
+      }
+    </>
+  )
 }

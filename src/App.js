@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./views/Home";
 import Inventory from "./views/Inventory";
 import Profile from "./views/Profile";
+import CarSingle from "./views/CarSingle";
+import firebase from "./firebase";
 
-function App() {
+export default function App() {
   return (
     <>
       <Router>
@@ -23,12 +25,12 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/inventory" element={<Inventory />}>
+            <Route path=":id" element={<CarSingle />} />
+          </Route>
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </>
   );
 }
-
-export default App;

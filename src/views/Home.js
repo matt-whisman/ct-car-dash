@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { DataContext } from "../contexts/DataProvider";
+import Car from '../components/Car'
 
 export default function Home() {
-  const [carId, setCarId] = useState(0);
-  const [car, setCar] = useState({});
-  const [loadState, setLoadState] = useState("LOADING");
-
-  useEffect(() => {
-    fetch(`https://my-json-server.typicode.com/Llang8/cars-api/cars/${carId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCar(data);
-        setLoadState("LOADED");
-      });
-  }, [carId]);
+  const { cars } = useContext(DataContext)
 
   return (
     <>
