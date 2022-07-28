@@ -25,18 +25,19 @@ export default function App() {
                         </li>
                     </ul>
                     <ul>
-                        {
-                            (user.loggedIn) ?
+                        {user.loggedIn ? (
                             <li>
                                 <button onClick={logout}>Logout</button>
                             </li>
-                            :
+                        ) : (
                             <li>
                                 <button onClick={login}>Login</button>
                             </li>
-                        }
+                        )}
                     </ul>
                 </nav>
+
+                <h2>Current User: {user.usernema}</h2>
 
                 <Routes>
                     <Route path="/" element={<Home />} />
