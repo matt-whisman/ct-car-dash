@@ -14,15 +14,15 @@ export default function Home() {
           <>
             <h2>{car.name}</h2>
             <p>Year: {car.year}</p>
-            <p>Selling Price: {car.selling_price}</p>
-            <p>KM Driven: {car.km_driven}</p>
+            <p>Selling Price: {car.sellingPrice}</p>
+            <p>KM Driven: {car.kmDriven}</p>
             <p>Fuel Type: {car.fuel}</p>
-            <p>Seller Type: {car.seller_type}</p>
+            <p>Seller Type: {car.sellerType}</p>
             <p>Transmission: {car.transmission}</p>
             <p>Owner: {car.owner}</p>
             <p>Mileage: {car.mileage}</p>
             <p>Engine: {car.engine}</p>
-            <p>Max Power: {car.max_power}</p>
+            <p>Max Power: {car.maxPower}</p>
             <p>Torque: {car.torque}</p>
             <p>Seats: {car.seats}</p>
           </>
